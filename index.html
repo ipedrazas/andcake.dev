@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>andcake.dev | Homelab</title>
+    <meta name="description" content="Welcome to andcake.dev - a developer's homelab powered by coffee, code, and cake.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --text-primary: #e6edf3;
+            --text-secondary: #7d8590;
+            --accent: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-orange: #d29922;
+            --border: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Terminal-style header */
+        header {
+            margin-bottom: 2rem;
+        }
+
+        .prompt {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .prompt::before {
+            content: '$ ';
+            color: var(--accent-green);
+        }
+
+        h1 {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .tagline span {
+            color: var(--accent-orange);
+        }
+
+        /* Hero image */
+        .hero {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Status section */
+        .status {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+        }
+
+        .status-header {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .status-line {
+            display: flex;
+            margin: 0.4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .status-key {
+            color: var(--accent);
+            min-width: 140px;
+        }
+
+        .status-value {
+            color: var(--text-primary);
+        }
+
+        .status-value.online {
+            color: var(--accent-green);
+        }
+
+        .status-value.online::before {
+            content: '● ';
+        }
+
+        /* Links */
+        .links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .link:hover {
+            border-color: var(--accent);
+            background: rgba(88, 166, 255, 0.1);
+        }
+
+        .link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-ascii {
+            white-space: pre;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .status-key {
+                min-width: 100%;
+                margin-bottom: 0.2rem;
+            }
+
+            .status-line {
+                margin: 0.8rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p class="prompt">ssh andcake.dev</p>
+            <h1>andcake.dev</h1>
+            <p class="tagline">// <span>homelab</span> :: where code meets cake</p>
+        </header>
+
+        <main>
+            <div class="hero">
+                <img src="assets/andcake-dev-homelab-setup.jpg" alt="Homelab setup with triple monitors, split keyboard, ginger cat, coffee, and cake">
+            </div>
+
+            <div class="status">
+                <div class="status-header">~ system status ~</div>
+                <div class="status-line">
+                    <span class="status-key">status:</span>
+                    <span class="status-value online">online</span>
+                </div>
+                <div class="status-line">
+                    <span class="status-key">coffee_level:</span>
+                    <span class="status-value">████████░░ 80%</span>
+                </div>
+                <div class="status-line">
+                    <span class="status-key">cat_status:</span>
+                    <span class="status-value">sleeping on warm laptop</span>
+                </div>
+                <div class="status-line">
+                    <span class="status-key">cake:</span>
+                    <span class="status-value">present and accounted for</span>
+                </div>
+                <div class="status-line">
+                    <span class="status-key">keyboard:</span>
+                    <span class="status-value">split (as nature intended)</span>
+                </div>
+                <div class="status-line">
+                    <span class="status-key">monitors:</span>
+                    <span class="status-value">3 (never enough)</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/ivangarzab" class="link">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-ascii">
+  /\_/\
+ ( o.o ) &lt; meow
+  &gt; ^ &lt;
+            </div>
+            <p>&copy; 2024 andcake.dev | powered by caffeine and curiosity</p>
+        </footer>
+    </div>
+</body>
+</html>
